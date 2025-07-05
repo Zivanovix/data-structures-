@@ -81,3 +81,46 @@ void Sorter::radixSort(int *arr, int n) {
     delete[] count;
     delete[] pref;
 }
+
+void Sorter::selectionSort(int *arr, int n) {
+    int pos, temp; // position of the minimum from unsorted part
+    for(int i=0; i < n-1; i++){
+        pos = i;
+        for(int j=i+1; j < n; j++) {
+            if(arr[j] < arr[pos])
+                pos = j;
+        }
+        temp = arr[pos];
+        arr[pos] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+void Sorter::bubbleSort(int* arr, int n) {
+    int bound, temp; // bound of the unsorted part
+    int pos = n-1; // position where the last swap happened
+    for(int i=0; i < n-1; i++){
+       bound = pos;
+       for(int j=0; j < bound; j++){
+           if(arr[j] > arr[j+1]){
+               temp = arr[j];
+               arr[j] = arr[j+1];
+               arr[j+1] = temp;
+               pos = j;
+           }
+       }
+    }
+}
+
+void Sorter::insertionSort(int* arr, int n) {
+    int curr, j;
+    for(int i=1; i < n; i++) {
+        curr = arr[i];
+        j = i - 1;
+        while(j >= 0 && curr < arr[j]){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = curr;
+    }
+}

@@ -9,6 +9,9 @@
 class Sorter {
 public:
     static void radixSort(int* arr, int n);
+    static void selectionSort(int* arr, int n);
+    static void bubbleSort(int* arr, int n);
+    static void insertionSort(int* arr, int n);
 
 };
 
