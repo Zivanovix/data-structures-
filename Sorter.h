@@ -9,10 +9,13 @@
 class Sorter {
 public:
     static void radixSort(int* arr, int n);
-    static void selectionSort(int* arr, int n);
-    static void bubbleSort(int* arr, int n);
-    static void insertionSort(int* arr, int n);
-
+    static void selectionSort(int* arr, int n); // Direct selection
+    static void bubbleSort(int* arr, int n); // Direct exchange
+    static void insertionSort(int* arr, int n); // Direct insertion
+    static void quickSort(int* arr, int n);
+protected:
+    static int partition(int*arr, int low, int high);
+    static void quickSort(int* arr, int low, int high);
 };
 
 

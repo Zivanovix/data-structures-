@@ -46,6 +46,7 @@ int main() {
     insertArrAndSort(Sorter::selectionSort, a);
     insertArrAndSort(Sorter::bubbleSort, a);
     insertArrAndSort(Sorter::insertionSort, a);
+    insertArrAndSort(Sorter::quickSort, a);
     return 0;
 }
 // 10 9 8 7 6 3 4 2 1 5
