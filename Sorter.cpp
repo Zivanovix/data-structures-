@@ -3,7 +3,11 @@
 //
 
 #include "Sorter.h"
+#include <cmath>
+
 #define BITS_IN_BYTE 8
+
+
 void Sorter::radixSort(int *arr, int n) {
     int *temp, *t, *count, *pref;
     int r, b, groups, mask, shift, count_n, i, j;
@@ -157,4 +161,32 @@ int Sorter::partition(int *arr, int low, int high) {
 
 void Sorter::quickSort(int *arr, int n) {
     quickSort(arr, 0, n);
+}
+
+void Sorter::shellSort(int *arr, int n) {
+    int h[50];
+    int k = 1;
+    while (true) {
+        h[k] = ((int)std::pow(3, k)-1) / 2;
+        if(h[k] > n / 2) break;
+        k++;
+    }
+    shellSort(arr, n, h, k);
+}
+
+void Sorter::shellSort(int *arr, int n, int *h, int t) {
+    for(int i = t; i > 0; i--){
+        int inc = h[i];
+
+        for(int j = inc; j < n; j++){
+            int y = arr[j];
+            int k = j - inc;
+            while(k >= 0 && y < arr[k]){
+                arr[k+inc] = arr[k];
+                k -= inc;
+            }
+            arr[k+inc] = y;
+        }
+
+    }
 }
