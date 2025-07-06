@@ -50,6 +50,7 @@ int main() {
     insertArrAndSort(Sorter::shellSort, a);
 
     insertArrAndSort(Sorter::mergeSort, a);
+    insertArrAndSort(Sorter::countingSort, a);
 
     return 0;
 }

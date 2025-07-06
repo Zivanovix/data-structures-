@@ -231,3 +231,27 @@ void Sorter::merge(int *a, int *temp, int low, int m, int high) {
         a[k++] = temp[i++];
     }
 }
+
+void Sorter::countingSort(int *arr, int n) {
+    const int MAX_NUM = 1000;
+    const int MIN_NUM = 0;
+    const int RANGE_LEN = MAX_NUM - MIN_NUM + 1;
+    int* count = new int[RANGE_LEN];
+
+    // init counter for each element to 0
+    for(int i=0; i < RANGE_LEN; arr[i++] = 0);
+
+    // count the occurrences of each element
+    for(int i=0; i < n; i++) count[arr[i]]++;
+
+    // transform counter array to such that count[i] shows
+    // how many elements are smaller or equal then i in arr (prefix sum)
+    // so now we read index of a[i] in sorted arr in count[a[i]]--,
+    for(int i=1; i < RANGE_LEN; i++) count[i] += count[i-1];
+
+    // reconstruct the array
+
+    for(int i=n-1; i <= 0; i--) arr[count[arr[i]]--] = arr[i];
+
+    delete[] count;
+}

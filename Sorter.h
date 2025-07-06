@@ -23,6 +23,8 @@ public:
 
     // Special linear complexity algorithms
     static void radixSort(int* arr, int n); // integers have to be non negative
+    static void countingSort(int* arr, int n); // assume keys in range 0, 1000
+
 
 protected:
     static int partition(int*arr, int low, int high);
