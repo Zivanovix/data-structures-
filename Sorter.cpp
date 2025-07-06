@@ -190,3 +190,44 @@ void Sorter::shellSort(int *arr, int n, int *h, int t) {
 
     }
 }
+void Sorter::mergeSort(int* arr, int n){
+    int* temp = new int[n/2+1];
+    mergeSort(arr, temp, 0, n-1);
+    delete[] temp;
+}
+void Sorter::mergeSort(int *arr, int *temp, int low, int high) {
+    if(low >= high) return; // sequence of length one is sorted
+
+    int m = (low + high) / 2;
+
+    mergeSort(arr, temp, low, m);
+    mergeSort(arr, temp, m+1, high);
+
+    merge(arr, temp, low, m, high);
+}
+
+void Sorter::merge(int *a, int *temp, int low, int m, int high) {
+    int i = 0, j = low, k;
+
+    // temp = a[low, mid]
+    while(j <= m)
+        temp[i++] = a[j++];
+
+    i = 0;
+    k = low;
+
+    // merge temp[] and a[mid+1, high] into a[low, high]
+    // while one of the halfs is not fully copied
+    while(k < j && j <= high) {
+        if(temp[i] <= a[j])
+            a[k++] = temp[i++];
+        else
+            a[k++] = a[j++];
+    }
+    // if the temp is fully copied, then we dont have to do anything
+    // because remaining part of second array is already in a
+    // if j = high and temp isn't fully copied, we have to copy the remaining elements
+    while(k < j) {
+        a[k++] = temp[i++];
+    }
+}

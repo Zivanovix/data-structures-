@@ -49,6 +49,8 @@ int main() {
     insertArrAndSort(Sorter::quickSort, a);
     insertArrAndSort(Sorter::shellSort, a);
 
+    insertArrAndSort(Sorter::mergeSort, a);
+
     return 0;
 }
 // 10 9 8 7 6 3 4 2 1 5
