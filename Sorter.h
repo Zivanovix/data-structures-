@@ -21,7 +21,7 @@ public:
 
     static void mergeSort(int* arr, int n); // Direct merging
 
-    // Special linear complexity algorithms
+    // Special linear complexity algorithms, non comparison-based sorts
     static void radixSort(int* arr, int n); // integers have to be non negative
     static void countingSort(int* arr, int n); // assume keys in range 0, 1000
 
