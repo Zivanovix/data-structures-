@@ -11,7 +11,7 @@ public:
 
 
     static void selectionSort(int* arr, int n); // Direct selection
-
+    static void heapSort(int* arr, int n);
 
     static void bubbleSort(int* arr, int n); // Direct exchange
     static void quickSort(int* arr, int n);
@@ -32,6 +32,7 @@ protected:
     static void shellSort(int* arr, int n, int* h, int t);
     static void mergeSort(int* tab, int* temp, int low, int high);
     static void merge(int* a, int* b, int low, int m, int high);
+    static void adjust(int* a, int i, int n);
 };
 
 

@@ -44,7 +44,8 @@ const unsigned MAX_LEN = 1000;
 int a[MAX_LEN];
 
 int main() {
-    /*insertArrAndSort(Sorter::radixSort, a);
+    /*
+    insertArrAndSort(Sorter::radixSort, a);
     insertArrAndSort(Sorter::selectionSort, a);
     insertArrAndSort(Sorter::bubbleSort, a);
     insertArrAndSort(Sorter::insertionSort, a);
@@ -52,8 +53,13 @@ int main() {
     insertArrAndSort(Sorter::shellSort, a);
 
     insertArrAndSort(Sorter::mergeSort, a);
-    insertArrAndSort(Sorter::countingSort, a);*/
+    insertArrAndSort(Sorter::countingSort, a);
+    insertArrAndSort(Sorter::heapSort, a);
 
+     */
+
+
+    /*
     Heap h(20);
     for(int i = 0; i < 20; i++) h.insert(i & 7);
     std::cout << h << std::endl;
@@ -76,7 +82,7 @@ int main() {
     catch (char const* s){
         std::cout << std:: endl << s << std::endl;
     }
-
+    /*
     return 0;
 }
 // 10 9 8 7 6 3 4 2 1 5

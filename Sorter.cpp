@@ -239,7 +239,7 @@ void Sorter::countingSort(int *arr, int n) {
     int* count = new int[RANGE_LEN];
 
     // init counter for each element to 0
-    for(int i=0; i < RANGE_LEN; arr[i++] = 0);
+    for(int i=0; i < RANGE_LEN; count[i++] = 0);
 
     // count the occurrences of each element
     for(int i=0; i < n; i++) count[arr[i]]++;
@@ -254,4 +254,34 @@ void Sorter::countingSort(int *arr, int n) {
     for(int i=n-1; i <= 0; i--) arr[count[arr[i]]--] = arr[i];
 
     delete[] count;
+}
+
+void Sorter::adjust(int* a, int i, int n) {
+    int k = a[i];
+    int j = 2*i + 1;
+    while(j < n){
+        if(j + 1 < n && a[j] < a[j+1])
+            j = j + 1;
+        if(k >= a[j]) {
+            a[(j-1)/2] = k;
+            return;
+        }
+        else {
+            a[(j-1)/2] = a[j];
+            j = 2*j + 1;
+        }
+    }
+    a[(j-1)/2] = k;
+}
+
+void Sorter::heapSort(int *arr, int n) {
+    //create heap;
+    for(int i = (n-2)/2; i >= 0; i--)
+        adjust(arr, i, n);
+    for(int i=n-1; i >= 1; i--){
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+        adjust(arr, 0, i);
+    }
 }
